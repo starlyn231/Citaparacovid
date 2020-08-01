@@ -1,0 +1,75 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Formulario de Pruebas COVID-19</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+
+    </nav>
+    <a class="btn btn-danger" href="https://www.worldometers.info/coronavirus/?utm_campaign=homeAdvegas1?" target="_blank">Mas sobre Virus</a>
+</div>
+
+
+<div class="container mt-5">
+
+
+
+    <!-- ngForm  es una referencia local al formulario-->
+    <!-- #forma  es una referencia local al formulario-->
+
+
+    <form autocomplete="off" (ngSubmit)="TestRequest(forma)" #forma="ngForm">
+
+        <!-- [(ngModel)]="formData.name "[(ngModelOptions)] ={stalone:true}" -->
+
+
+        <div class="form-group row">
+            <label class="col-2 col-2 col-form-label">Nombres </label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" name="name" [(ngModel)]="formData.name" [ngModelOptions]={standalone:true} placeholder="Nombre" required minlength="6" [class.is-invalid]="name.invalid && name.touched" #name="ngModel">
+                <small *ngIf="name.invalid && name.touched" class="form-text text-danger ">Ingrese 5 letras</small>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Correo</label>
+            <div class="col-8">
+
+                <input class="form-control" type="email" name="email" [(ngModel)]="formData.email" [class.is-invalid]="correo.invalid &&
+                 correo.touched" #correo="ngModel" placeholder="Ingrese Correo" [(ngModel)]="formData.email" required minlength="6" [ngModelOptions]={standalone:true} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [class.is-invalid]="email.invalid && email.touched"
+                    #email="ngModel">
+                <small *ngIf="correo.invalid && correo.touched" class="form-text text-danger ">El correo es obligatorio</small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Escoge Tu Pais</label>
+            <div class="col-8">
+
+                <select class="form-control text-black-50" required name="pais" [(ngModel)]="formData.country" [ngModelOptions]={standalone:true}>
+                <option *ngFor="let country of countryList" value="{{country}}">{{country}}</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Descripcion </label>
+            <div class="col-8">
+                <textarea class="form-control" type="text" name="descripcion" [(ngModel)]="formData.descripcion" placeholder=" Descripcion " [ngModelOptions]={standalone:true} required minlength="8" [class.is-invalid]="descripcion.invalid && descripcion.touched" #descripcion="ngModel"></textarea>
+
+                <small *ngIf="descripcion.invalid && descripcion.touched" class="form-text text-danger mb-2">Los sintomas son obligatorios </small>
+            </div>
+        </div>
+
+
+        <div class="form-group row ">
+            <label class="col-2 col-form-label ">&nbsp;</label>
+            <div class="input-group col-8 ">
+                <button type="submit " class="btn btn-dark btn-block ">
+                Solicite Prueba
+            </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

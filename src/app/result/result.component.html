@@ -1,0 +1,30 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Formulario de Pruebas COVID-19</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+
+    </nav>
+    <a class="btn btn-danger" href="#">Mas sobre Virus</a>
+</div>
+
+<!--contenedor general-->
+<div class="container-fluid  ">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card" style="width: 40rem;">
+                <div class="card-body ">
+                    <hr>
+                    <img src="" alt="">
+                    <h1 class="mt-2 success"> <b>{{dataExtractor.name}}</b></h1>
+                    <h6 class="mt-2"> Pais De Origen: <b>{{dataExtractor.country}}</b></h6>
+                    <h6 class="mt-2">Correo: <b>{{dataExtractor.email}}</b></h6>
+                    <h6 class="mt-2">Fecha de Solicitud: <b>{{dataExtractor.date | date :"short"   }}</b></h6>
+                    <h6 class="mt-2">Hora de la solicitud: <b>{{dataExtractor.date | date:"shortTime"}}</b></h6>
+                    <h6 class="mt-2">Sintomas:</h6>
+                    <h6 class="mt-2 font-weight-bold"><b>{{dataExtractor.descripcion}}</b></h6>
+                    <button type="button" class="btn btn-outline-dark btn-lg btn-block mt-4" routerLink="/home">Atras </button>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
